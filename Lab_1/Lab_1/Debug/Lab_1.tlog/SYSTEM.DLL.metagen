@@ -6661,7 +6661,7 @@ Class System.IO.Compression.CompressionTracingSwitch: AutoLayout, AnsiClass, Cla
   :System.Diagnostics.Switch
     Void .ctor(System.String, System.String): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
   Fields:
-    System.IO.Compression.CompressionTracingSwitch tracingSwitch : Assembly, Static, InitOnly
+    System.IO.Compression.CompressionTracingSwitch tracingSwitch : Assembly, Static
   Properties:
     Boolean Verbose 'get ' : 
     Boolean Informational 'get ' : 
@@ -8575,11 +8575,6 @@ Class System.Runtime.InteropServices.WindowsRuntime.NotifyPropertyChangedToWinRT
     remove_PropertyChanged(EventRegistrationToken): PrivateScope, Assembly, HideBySig
 Class System.Runtime.InteropServices.WindowsRuntime.ICommandToManagedAdapter: AutoLayout, AnsiClass, Class, Sealed, BeforeFieldInit
 Class System.Runtime.InteropServices.WindowsRuntime.ICommandToWinRTAdapter: AutoLayout, AnsiClass, Class, Sealed, BeforeFieldInit
-Class System.Runtime.InteropServices.WindowsRuntime.ICommandAdapterHelpers: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
-  Methods:
-    CreateWrapperHandler(EventHandler): PrivateScope, Assembly, Static, HideBySig
-    CreateWrapperHandler(EventHandler`1): PrivateScope, Assembly, Static, HideBySig
-    GetValueFromEquivalentKey(ConditionalWeakTable`2, EventHandler, CreateValueCallback): PrivateScope, Assembly, Static, HideBySig
 Class System.Collections.Specialized.OrderedDictionary: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -9525,8 +9520,6 @@ Class Microsoft.Win32.NativeMethods: AutoLayout, AnsiClass, Class, Abstract, Sea
     Int32 ERROR_SUCCESS = 0 : Public, Static, Literal, HasDefault
     Int32 ERROR_ALREADY_EXISTS = 183 : Public, Static, Literal, HasDefault
     Int32 ERROR_COUNTER_TIMEOUT = 1121 : Public, Static, Literal, HasDefault
-    Int32 DUPLICATE_CLOSE_SOURCE = 1 : Public, Static, Literal, HasDefault
-    Int32 DUPLICATE_SAME_ACCESS = 2 : Public, Static, Literal, HasDefault
     Int32 RPC_S_SERVER_UNAVAILABLE = 1722 : Public, Static, Literal, HasDefault
     Int32 RPC_S_CALL_FAILED = 1726 : Public, Static, Literal, HasDefault
     Int32 PDH_NO_DATA = -2147481643 : Public, Static, Literal, HasDefault
@@ -9544,6 +9537,8 @@ Class Microsoft.Win32.NativeMethods: AutoLayout, AnsiClass, Class, Abstract, Sea
     Int32 SE_ERR_DDEBUSY = 30 : Public, Static, Literal, HasDefault
     Int32 SE_ERR_NOASSOC = 31 : Public, Static, Literal, HasDefault
     Int32 SE_PRIVILEGE_ENABLED = 2 : Public, Static, Literal, HasDefault
+    Int32 DUPLICATE_CLOSE_SOURCE = 1 : Public, Static, Literal, HasDefault
+    Int32 DUPLICATE_SAME_ACCESS = 2 : Public, Static, Literal, HasDefault
     Int32 LOGON32_LOGON_BATCH = 4 : Public, Static, Literal, HasDefault
     Int32 LOGON32_PROVIDER_DEFAULT = 0 : Public, Static, Literal, HasDefault
     Int32 LOGON32_LOGON_INTERACTIVE = 2 : Public, Static, Literal, HasDefault
@@ -10064,9 +10059,10 @@ Class Microsoft.Win32.SafeNativeMethods: AutoLayout, AnsiClass, Class, Abstract,
     GetStockObject(Int32): PrivateScope, Public, Static, HideBySig, PinvokeImpl
     OutputDebugString(String): PrivateScope, Public, Static, HideBySig, PinvokeImpl
     MessageBox(IntPtr, String, String, Int32): PrivateScope, Public, Static, HideBySig
-    FormatMessage(Int32, IntPtr, UInt32, Int32, StringBuilder, Int32, IntPtr[]): PrivateScope, Public, Static, HideBySig, PinvokeImpl
-    FormatMessage(Int32, SafeLibraryHandle, UInt32, Int32, StringBuilder, Int32, IntPtr[]): PrivateScope, Public, Static, HideBySig, PinvokeImpl
+    FormatMessage(Int32, SafeHandle, UInt32, Int32, StringBuilder, Int32, IntPtr[]): PrivateScope, Public, Static, HideBySig, PinvokeImpl
+    FormatMessage(Int32, HandleRef, Int32, Int32, StringBuilder, Int32, IntPtr): PrivateScope, Public, Static, HideBySig, PinvokeImpl
     CloseHandle(IntPtr): PrivateScope, Public, Static, HideBySig, PinvokeImpl
+    CloseHandle(HandleRef): PrivateScope, Public, Static, HideBySig, PinvokeImpl
     QueryPerformanceCounter(Int64&(Out)): PrivateScope, Public, Static, HideBySig, PinvokeImpl
     QueryPerformanceFrequency(Int64&(Out)): PrivateScope, Public, Static, HideBySig, PinvokeImpl
     RegisterWindowMessage(String): PrivateScope, Public, Static, HideBySig, PinvokeImpl
@@ -10075,10 +10071,10 @@ Class Microsoft.Win32.SafeNativeMethods: AutoLayout, AnsiClass, Class, Abstract,
     GetComputerName(StringBuilder, Int32[]): PrivateScope, Public, Static, HideBySig, PinvokeImpl
     InterlockedCompareExchange(IntPtr, Int32, Int32): PrivateScope, Public, Static, HideBySig
     FormatFromRawValue(UInt32, UInt32, Int64&, PDH_RAW_COUNTER, PDH_RAW_COUNTER, PDH_FMT_COUNTERVALUE): PrivateScope, Public, Static, HideBySig, PinvokeImpl
-    IsWow64Process(SafeProcessHandle, Boolean&): PrivateScope, Public, Static, HideBySig, PinvokeImpl
     CreateSemaphore(SECURITY_ATTRIBUTES, Int32, Int32, String): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
     OpenSemaphore(Int32, Boolean, String): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
     ReleaseSemaphore(SafeWaitHandle, Int32, Int32&(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    IsWow64Process(SafeProcessHandle, Boolean&): PrivateScope, Public, Static, HideBySig, PinvokeImpl
 Class Microsoft.Win32.SafeNativeMethods+PROCESS_INFORMATION: AutoLayout, AnsiClass, Class, NestedAssembly, SequentialLayout, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -13032,7 +13028,7 @@ Class System.IPv4AddressHelper: AutoLayout, AnsiClass, Class, Abstract, Sealed, 
   Methods:
     ParseCanonicalName(String, Int32, Int32, Boolean&): PrivateScope, Assembly, Static, HideBySig
     ParseHostNumber(String, Int32, Int32): PrivateScope, Assembly, Static, HideBySig
-    IsValid(Char*, Int32, Int32&, Boolean, Boolean, Boolean): PrivateScope, Assembly, Static, HideBySig
+    IsValid(Char*, Int32, Int32&, Boolean, Boolean): PrivateScope, Assembly, Static, HideBySig
     IsValidCanonical(Char*, Int32, Int32&, Boolean, Boolean): PrivateScope, Assembly, Static, HideBySig
     ParseNonCanonical(Char*, Int32, Int32&, Boolean): PrivateScope, Assembly, Static, HideBySig
 Class System.IPv6AddressHelper: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
@@ -13954,10 +13950,6 @@ Class System.Net.WebRequest: AutoLayout, AnsiClass, Class, Public, Abstract, Ser
     GetSystemWebProxy(): PrivateScope, Public, Static, HideBySig
     InternalGetSystemWebProxy(): PrivateScope, Assembly, Static, HideBySig
     SetupCacheProtocol(Uri): PrivateScope, Assembly, HideBySig
-    LogBeginGetResponse(String): PrivateScope, Assembly, HideBySig
-    LogEndGetResponse(): PrivateScope, Assembly, HideBySig
-    LogBeginGetRequestStream(String): PrivateScope, Assembly, HideBySig
-    LogEndGetRequestStream(): PrivateScope, Assembly, HideBySig
 Interface System.Net.IWebRequestCreate: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
   Methods:
     Create(Uri): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
@@ -15005,13 +14997,10 @@ Class System.Net.HttpWebRequest: AutoLayout, AnsiClass, Class, Public, Serializa
     System.DateTime IfModifiedSince 'get set' : 
     System.DateTime Date 'get set' : 
     Byte[] WriteBuffer 'get ' : 
-    Int32 WriteBufferLength 'get ' : 
     Int32 RequestContinueCount 'get ' : 
     System.Net.ServerCertValidationCallback ServerCertValidationCallback 'get set' : 
     System.Net.Security.RemoteCertificateValidationCallback ServerCertificateValidationCallback 'get set' : 
   Methods:
-    AddRange(Int32): PrivateScope, Public, HideBySig
-    AddRange(Int64): PrivateScope, Public, HideBySig
     AddRange(String, Int32, Int32): PrivateScope, Public, HideBySig
     AddRange(String, Int64, Int64): PrivateScope, Public, HideBySig
     AddRange(String, Int32): PrivateScope, Public, HideBySig
@@ -15067,8 +15056,6 @@ Class System.Net.HttpWebRequest: AutoLayout, AnsiClass, Class, Public, Serializa
     get_Date(): PrivateScope, Public, HideBySig, SpecialName
     set_Date(DateTime): PrivateScope, Public, HideBySig, SpecialName
     get_WriteBuffer(): PrivateScope, Assembly, HideBySig, SpecialName
-    get_WriteBufferLength(): PrivateScope, Assembly, HideBySig, SpecialName
-    FreeWriteBuffer(): PrivateScope, Assembly, HideBySig
     Abort(): PrivateScope, Public, Virtual, HideBySig
     SetRequestSubmitDone(ConnectStream): PrivateScope, Assembly, HideBySig
     WriteHeadersCallback(WebExceptionStatus, ConnectStream, Boolean): PrivateScope, Assembly, HideBySig
@@ -15097,6 +15084,8 @@ Class System.Net.HttpWebRequest: AutoLayout, AnsiClass, Class, Public, Serializa
     set_ServerCertificateValidationCallback(RemoteCertificateValidationCallback): PrivateScope, Public, HideBySig, SpecialName
     AddRange(Int32, Int32): PrivateScope, Public, HideBySig
     AddRange(Int64, Int64): PrivateScope, Public, HideBySig
+    AddRange(Int32): PrivateScope, Public, HideBySig
+    AddRange(Int64): PrivateScope, Public, HideBySig
     get_RtcState(): PrivateScope, Assembly, HideBySig, SpecialName
     set_RtcState(RtcState): PrivateScope, Assembly, HideBySig, SpecialName
     get_RequestTimer(): PrivateScope, Assembly, HideBySig, SpecialName
@@ -15661,7 +15650,6 @@ Struct System.Net.SecureCredential+Flags: AutoLayout, AnsiClass, Class, NestedPu
     Flags ValidateManual = 8 : Public, Static, Literal, HasDefault
     Flags NoDefaultCred = 16 : Public, Static, Literal, HasDefault
     Flags ValidateAuto = 32 : Public, Static, Literal, HasDefault
-    Flags UseStrongCrypto = 4194304 : Public, Static, Literal, HasDefault
 Struct System.Net.SecurityBufferStruct: AutoLayout, AnsiClass, Class, SequentialLayout, Sealed, BeforeFieldInit
   :System.ValueType
   Fields:
@@ -15779,6 +15767,25 @@ Class System.Net.CoreResponseData: AutoLayout, AnsiClass, Class, BeforeFieldInit
     System.IO.Stream m_ConnectStream : Public
   Methods:
     Clone(): PrivateScope, Assembly, HideBySig
+Interface System.Net.IReadChunkBytes: AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+  Properties:
+    Int32 NextByte 'get set' : 
+  Methods:
+    get_NextByte(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    set_NextByte(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+Class System.Net.StreamChunkBytes: AutoLayout, AnsiClass, Class, BeforeFieldInit
+    Void .ctor(System.Net.ConnectStream): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Net.IReadChunkBytes
+  Fields:
+    System.Net.ConnectStream ChunkStream : Public
+    Int32 BytesRead : Public
+    Int32 TotalBytesRead : Public
+  Properties:
+    Int32 NextByte 'get set' : 
+  Methods:
+    get_NextByte(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_NextByte(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
 Class System.Net.HttpAbortDelegate: AutoLayout, AnsiClass, Class, Sealed
   :System.MulticastDelegate
     Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -16235,7 +16242,7 @@ Class System.Net.ServicePoint: AutoLayout, AnsiClass, Class, Public, BeforeField
     CreateConnectionGroupTimer(ConnectionGroup): PrivateScope, Assembly, HideBySig
     ReleaseConnectionGroup(String): PrivateScope, Assembly, HideBySig
     ReleaseAllConnectionGroups(): PrivateScope, Assembly, HideBySig
-    DebugMembers(Int32): PrivateScope, Assembly, HideBySig
+    Debug(Int32): PrivateScope, Assembly, HideBySig
 Struct System.Net.SecurityProtocolType: AutoLayout, AnsiClass, Class, Public, Sealed
   :System.Enum
   Fields:
@@ -16286,12 +16293,11 @@ Class System.Net.ServicePointManager: AutoLayout, AnsiClass, Class, Public, Befo
     System.Net.CertPolicyValidationCallback CertPolicyValidationCallback 'get ' : 
     System.Net.Security.RemoteCertificateValidationCallback ServerCertificateValidationCallback 'get set' : 
     System.Net.ServerCertValidationCallback ServerCertValidationCallback 'get ' : 
-    Boolean DisableStrongCrypto 'get ' : 
     Boolean CheckCertificateRevocationList 'get set' : 
     System.Net.Security.EncryptionPolicy EncryptionPolicy 'get ' : 
     Boolean CheckCertificateName 'get ' : 
   Methods:
-    DebugMembers(Int32): PrivateScope, Assembly, Static, HideBySig
+    Debug(Int32): PrivateScope, Assembly, Static, HideBySig
     get_IdleServicePointTimeoutDelegate(): PrivateScope, Assembly, Static, HideBySig, SpecialName
     get_SecurityProtocol(): PrivateScope, Public, Static, HideBySig, SpecialName
     set_SecurityProtocol(SecurityProtocolType): PrivateScope, Public, Static, HideBySig, SpecialName
@@ -16316,7 +16322,6 @@ Class System.Net.ServicePointManager: AutoLayout, AnsiClass, Class, Public, Befo
     get_ServerCertificateValidationCallback(): PrivateScope, Public, Static, HideBySig, SpecialName
     set_ServerCertificateValidationCallback(RemoteCertificateValidationCallback): PrivateScope, Public, Static, HideBySig, SpecialName
     get_ServerCertValidationCallback(): PrivateScope, Assembly, Static, HideBySig, SpecialName
-    get_DisableStrongCrypto(): PrivateScope, Assembly, Static, HideBySig, SpecialName
     get_CheckCertificateRevocationList(): PrivateScope, Public, Static, HideBySig, SpecialName
     set_CheckCertificateRevocationList(Boolean): PrivateScope, Public, Static, HideBySig, SpecialName
     get_EncryptionPolicy(): PrivateScope, Public, Static, HideBySig, SpecialName
@@ -16700,23 +16705,6 @@ Class System.Net.UnsafeNclNativeMethods+NativePKI: AutoLayout, AnsiClass, Class,
   Methods:
     CertVerifyCertificateChainPolicy(IntPtr(In), SafeFreeCertChain(In), ChainPolicyParameter&(In), ChainPolicyStatus&(In, Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
     FindClientCertificates(): PrivateScope, Assembly, Static, HideBySig
-Struct System.Net.UnsafeNclNativeMethods+NativePKI+CRYPT_OBJID_BLOB: AutoLayout, AnsiClass, Class, NestedAssembly, SequentialLayout, Sealed, BeforeFieldInit
-  :System.ValueType
-  Fields:
-    UInt32 cbData : Public
-    IntPtr pbData : Public
-Struct System.Net.UnsafeNclNativeMethods+NativePKI+CERT_EXTENSION: AutoLayout, AnsiClass, Class, NestedAssembly, SequentialLayout, Sealed, BeforeFieldInit
-  :System.ValueType
-  Fields:
-    IntPtr pszObjId : Public
-    UInt32 fCritical : Public
-    CRYPT_OBJID_BLOB Value : Public
-Struct System.Net.UnsafeNclNativeMethods+NativePKI+CERT_SELECT_CRITERIA: AutoLayout, AnsiClass, Class, NestedAssembly, SequentialLayout, Sealed, BeforeFieldInit
-  :System.ValueType
-  Fields:
-    UInt32 dwType : Public
-    UInt32 cPara : Public
-    IntPtr ppPara : Public
 Class System.Net.UnsafeNclNativeMethods+NativeNTSSPI: AutoLayout, AnsiClass, Class, NestedAssembly, Abstract, Sealed, BeforeFieldInit
   Methods:
     EncryptMessage(SSPIHandle&, UInt32(In), SecurityBufferDescriptor(In, Out), UInt32(In)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
@@ -17891,7 +17879,7 @@ Class System.Net.WebProxy: AutoLayout, AnsiClass, Class, Public, Serializable, B
     GetProxiesAuto(Uri, Int32&): PrivateScope, Assembly, HideBySig
     AbortGetProxiesAuto(Int32&): PrivateScope, Assembly, HideBySig
     GetProxyAutoFailover(Uri): PrivateScope, Assembly, HideBySig
-Class System.Net.WebUtility: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+Class System.Net.WebUtility: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed
   Methods:
     HtmlEncode(String): PrivateScope, Public, Static, HideBySig
     HtmlEncode(String, TextWriter): PrivateScope, Public, Static, HideBySig
@@ -18033,13 +18021,10 @@ Class System.Net.BufferOffsetSize: AutoLayout, AnsiClass, Class, BeforeFieldInit
     Byte[] Buffer : Assembly
     Int32 Offset : Assembly
     Int32 Size : Assembly
-Class System.Net.ChunkParser: AutoLayout, AnsiClass, Class, Sealed
-    Void .ctor(System.IO.Stream, Byte[], Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class System.Net.ChunkParse: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
   Methods:
-    ReadAsync(Object, Byte[], Int32, Int32, AsyncCallback, Object): PrivateScope, Public, HideBySig
-    Read(Byte[], Int32, Int32): PrivateScope, Public, HideBySig
-    TryGetLeftoverBytes(Byte[]&(Out), Int32&(Out), Int32&(Out)): PrivateScope, Public, HideBySig
-    ReadCallback(IAsyncResult): PrivateScope, Public, HideBySig
+    SkipPastCRLF(IReadChunkBytes): PrivateScope, Assembly, Static, HideBySig
+    GetChunkSize(IReadChunkBytes, Int32&(Out)): PrivateScope, Assembly, Static, HideBySig
 Class System.Net.PooledStream: AutoLayout, AnsiClass, Class, BeforeFieldInit
   :System.IO.Stream
     Void .ctor(System.Object): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
@@ -18230,6 +18215,19 @@ Struct System.Net.TunnelStateObject: AutoLayout, AnsiClass, Class, SequentialLay
   Fields:
     System.Net.Connection Connection : Assembly
     System.Net.HttpWebRequest OriginalRequest : Assembly
+Struct System.Net.BufferChunkBytes: AutoLayout, AnsiClass, Class, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Interfaces:
+    System.Net.IReadChunkBytes
+  Fields:
+    Byte[] Buffer : Public
+    Int32 Offset : Public
+    Int32 Count : Public
+  Properties:
+    Int32 NextByte 'get set' : 
+  Methods:
+    get_NextByte(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_NextByte(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
 Class System.Net.ConnectionReturnResult: AutoLayout, AnsiClass, Class, BeforeFieldInit
     Void .ctor(): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
     Void .ctor(Int32): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
@@ -18264,7 +18262,6 @@ Class System.Net.Connection: AutoLayout, AnsiClass, Class, BeforeFieldInit
     get_AtLeastOneResponseReceived(): PrivateScope, Assembly, HideBySig, SpecialName
     SubmitRequest(HttpWebRequest, Boolean): PrivateScope, Assembly, HideBySig
     WriteStartNextRequest(HttpWebRequest, ConnectionReturnResult&): PrivateScope, Assembly, HideBySig
-    SetLeftoverBytes(Byte[], Int32, Int32): PrivateScope, Assembly, HideBySig
     ReadStartNextRequest(WebRequest, ConnectionReturnResult&): PrivateScope, Assembly, HideBySig
     MarkAsReserved(): PrivateScope, Assembly, HideBySig
     CheckStartReceive(HttpWebRequest): PrivateScope, Assembly, HideBySig
@@ -18277,7 +18274,7 @@ Class System.Net.Connection: AutoLayout, AnsiClass, Class, BeforeFieldInit
     PollAndRead(HttpWebRequest, Boolean): PrivateScope, Assembly, HideBySig
     SyncRead(HttpWebRequest, Boolean, Boolean): PrivateScope, Assembly, HideBySig
     Write(ScatterGatherBuffers): PrivateScope, Assembly, HideBySig
-    DebugMembers(Int32): PrivateScope, Assembly, HideBySig
+    Debug(Int32): PrivateScope, Assembly, HideBySig
 Class System.Net.ConnectionGroup: AutoLayout, AnsiClass, Class, BeforeFieldInit
     Void .ctor(System.Net.ServicePoint, System.String): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -18302,7 +18299,7 @@ Class System.Net.ConnectionGroup: AutoLayout, AnsiClass, Class, BeforeFieldInit
     CancelIdleTimer(): PrivateScope, Assembly, HideBySig
     DisableKeepAliveOnConnections(): PrivateScope, Assembly, HideBySig
     FindConnection(HttpWebRequest, String, Boolean&(Out)): PrivateScope, Assembly, HideBySig
-    DebugMembers(Int32): PrivateScope, Assembly, HideBySig
+    Debug(Int32): PrivateScope, Assembly, HideBySig
 Struct System.Net.WriteHeadersCallbackState: AutoLayout, AnsiClass, Class, SequentialLayout, Sealed, BeforeFieldInit
   :System.ValueType
     Void .ctor(System.Net.HttpWebRequest, System.Net.ConnectStream): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
@@ -18378,6 +18375,7 @@ Class System.Net.ConnectStream: AutoLayout, AnsiClass, Class, BeforeFieldInit
     Read(Byte[](In, Out), Int32, Int32): PrivateScope, Public, Virtual, HideBySig
     BeginRead(Byte[], Int32, Int32, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, HasSecurity
     EndRead(IAsyncResult): PrivateScope, Public, Virtual, HideBySig
+    ReadSingleByte(): PrivateScope, Assembly, HideBySig
     WriteHeaders(Boolean): PrivateScope, Assembly, HideBySig
     GetChannelBinding(ChannelBindingKind): PrivateScope, Assembly, HideBySig
     PollAndRead(Boolean): PrivateScope, Assembly, HideBySig
@@ -19064,6 +19062,7 @@ Class System.Net.NtlmClient: AutoLayout, AnsiClass, Class, BeforeFieldInit
     System.String Signature : Assembly, Static
     Int32 SignatureSize : Assembly, Static
     System.String AuthType = NTLM : Assembly, Static, Literal, HasDefault
+    Int32 MaxNtlmCredentialSize = 527 : Assembly, Static, Literal, HasDefault
   Properties:
     Boolean CanPreAuthenticate 'get ' : 
     System.String AuthenticationType 'get ' : 
@@ -19275,14 +19274,6 @@ Class System.Net.SafeFreeCertChainList: AutoLayout, AnsiClass, Class, Sealed, Be
   :Microsoft.Win32.SafeHandles.SafeHandleZeroOrMinusOneIsInvalid
     Void .ctor(): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
   Methods:
-    ToString(): PrivateScope, Public, Virtual, HideBySig
-Class System.Net.SafeCertSelectCritera: AutoLayout, AnsiClass, Class, Sealed, BeforeFieldInit
-  :Microsoft.Win32.SafeHandles.SafeHandleZeroOrMinusOneIsInvalid
-    Void .ctor(): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
-  Properties:
-    Int32 Count 'get ' : 
-  Methods:
-    get_Count(): PrivateScope, Assembly, HideBySig, SpecialName
     ToString(): PrivateScope, Public, Virtual, HideBySig
 Class System.Net.SafeFreeCertContext: AutoLayout, AnsiClass, Class, Sealed, BeforeFieldInit
   :Microsoft.Win32.SafeHandles.SafeHandleZeroOrMinusOneIsInvalid
@@ -29826,46 +29817,6 @@ Class System.EnvironmentHelpers: AutoLayout, AnsiClass, Class, Abstract, Sealed,
   Methods:
     get_IsAppContainerProcess(): PrivateScope, Public, Static, HideBySig, SpecialName
     IsWindowsVistaOrAbove(): PrivateScope, Assembly, Static, HideBySig
-Class System.PinnableBufferCache: AutoLayout, AnsiClass, Class, Sealed, BeforeFieldInit
-    Void .ctor(System.String, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-    Void .ctor(System.String, System.Func`1[System.Object]): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName, HasSecurity
-  Methods:
-    AllocateBuffer(): PrivateScope, Public, HideBySig
-    FreeBuffer(Byte[]): PrivateScope, Public, HideBySig
-    Allocate(): PrivateScope, Assembly, HideBySig
-    Free(Object): PrivateScope, Assembly, HideBySig
-Class System.Gen2GcCallback: AutoLayout, AnsiClass, Class, Sealed, BeforeFieldInit
-  :System.Runtime.ConstrainedExecution.CriticalFinalizerObject
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    Register(Func`2, Object): PrivateScope, Public, Static, HideBySig
-Class System.PinnableBufferCacheEventSource: AutoLayout, AnsiClass, Class, Sealed, BeforeFieldInit
-  :System.Diagnostics.Tracing.EventSource
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    System.PinnableBufferCacheEventSource Log : Public, Static, InitOnly
-  Methods:
-    DebugMessage(String): PrivateScope, Public, HideBySig
-    DebugMessage1(String, Int64): PrivateScope, Public, HideBySig
-    DebugMessage2(String, Int64, Int64): PrivateScope, Public, HideBySig
-    DebugMessage3(String, Int64, Int64, Int64): PrivateScope, Public, HideBySig
-    Create(String): PrivateScope, Public, HideBySig
-    AllocateBuffer(String, UInt64, Int32, Int32, Int32): PrivateScope, Public, HideBySig
-    AllocateBufferFromNotGen2(String, Int32): PrivateScope, Public, HideBySig
-    AllocateBufferCreatingNewBuffers(String, Int32, Int32): PrivateScope, Public, HideBySig
-    AllocateBufferAged(String, Int32): PrivateScope, Public, HideBySig
-    AllocateBufferFreeListEmpty(String, Int32): PrivateScope, Public, HideBySig
-    FreeBuffer(String, UInt64, Int32, Int32): PrivateScope, Public, HideBySig
-    FreeBufferStillTooYoung(String, Int32): PrivateScope, Public, HideBySig
-    TrimCheck(String, Int32, Boolean, Int32): PrivateScope, Public, HideBySig
-    TrimFree(String, Int32, Int32, Int32): PrivateScope, Public, HideBySig
-    TrimExperiment(String, Int32, Int32, Int32): PrivateScope, Public, HideBySig
-    TrimFreeSizeOK(String, Int32, Int32): PrivateScope, Public, HideBySig
-    TrimFlush(String, Int32, Int32, Int32): PrivateScope, Public, HideBySig
-    AgePendingBuffersResults(String, Int32, Int32): PrivateScope, Public, HideBySig
-    WalkFreeListResult(String, Int32, Int32): PrivateScope, Public, HideBySig
-    AddressOf(Object): PrivateScope, Assembly, Static, HideBySig
-    AddressOfByteArray(Byte[]): PrivateScope, Assembly, Static, HideBySig
 Class FXAssembly: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
   Fields:
     System.String Version = 4.0.0.0 : Assembly, Static, Literal, HasDefault
@@ -29876,9 +29827,9 @@ Class ThisAssembly: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldI
     System.String DefaultAlias = System.dll : Assembly, Static, Literal, HasDefault
     System.String Copyright = © Microsoft Corporation.  All rights reserved. : Assembly, Static, Literal, HasDefault
     System.String Version = 4.0.0.0 : Assembly, Static, Literal, HasDefault
-    System.String InformationalVersion = 4.0.30319.34209 : Assembly, Static, Literal, HasDefault
+    System.String InformationalVersion = 4.0.30319.18020 : Assembly, Static, Literal, HasDefault
     System.String DailyBuildNumberStr = 30319 : Assembly, Static, Literal, HasDefault
-    System.String BuildRevisionStr = 34209 : Assembly, Static, Literal, HasDefault
+    System.String BuildRevisionStr = 18020 : Assembly, Static, Literal, HasDefault
     Int32 DailyBuildNumber = 30319 : Assembly, Static, Literal, HasDefault
 Class AssemblyRef: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
   Fields:
@@ -29976,10 +29927,10 @@ Class System.SR: AutoLayout, AnsiClass, Class, Sealed, BeforeFieldInit
     System.String DebugAssertLongMessage = DebugAssertLongMessage : Assembly, Static, Literal, HasDefault
     System.String DebugMessageTruncated = DebugMessageTruncated : Assembly, Static, Literal, HasDefault
     System.String DebugAssertTitle = DebugAssertTitle : Assembly, Static, Literal, HasDefault
-    System.String NotSupported = NotSupported : Assembly, Static, Literal, HasDefault
     System.String DebugLaunchFailed = DebugLaunchFailed : Assembly, Static, Literal, HasDefault
     System.String DebugLaunchFailedTitle = DebugLaunchFailedTitle : Assembly, Static, Literal, HasDefault
     System.String ObjectDisposed = ObjectDisposed : Assembly, Static, Literal, HasDefault
+    System.String NotSupported = NotSupported : Assembly, Static, Literal, HasDefault
     System.String ExceptionOccurred = ExceptionOccurred : Assembly, Static, Literal, HasDefault
     System.String MustAddListener = MustAddListener : Assembly, Static, Literal, HasDefault
     System.String ToStringNull = ToStringNull : Assembly, Static, Literal, HasDefault
@@ -31345,18 +31296,18 @@ Class System.SR: AutoLayout, AnsiClass, Class, Sealed, BeforeFieldInit
     System.String ArgumentOutOfRange_Bounds_Lower_Upper = ArgumentOutOfRange_Bounds_Lower_Upper : Assembly, Static, Literal, HasDefault
     System.String ArgumentOutOfRange_Enum = ArgumentOutOfRange_Enum : Assembly, Static, Literal, HasDefault
     System.String ArgumentOutOfRange_NeedNonNegNumRequired = ArgumentOutOfRange_NeedNonNegNumRequired : Assembly, Static, Literal, HasDefault
-    System.String ArgumentOutOfRange_NeedPosNum = ArgumentOutOfRange_NeedPosNum : Assembly, Static, Literal, HasDefault
     System.String ArgumentOutOfRange_Timeout = ArgumentOutOfRange_Timeout : Assembly, Static, Literal, HasDefault
     System.String ArgumentOutOfRange_WriteTimeout = ArgumentOutOfRange_WriteTimeout : Assembly, Static, Literal, HasDefault
+    System.String ArgumentOutOfRange_NeedPosNum = ArgumentOutOfRange_NeedPosNum : Assembly, Static, Literal, HasDefault
     System.String ArgumentOutOfRange_OffsetOut = ArgumentOutOfRange_OffsetOut : Assembly, Static, Literal, HasDefault
     System.String IndexOutOfRange_IORaceCondition = IndexOutOfRange_IORaceCondition : Assembly, Static, Literal, HasDefault
     System.String IO_BindHandleFailed = IO_BindHandleFailed : Assembly, Static, Literal, HasDefault
     System.String IO_OperationAborted = IO_OperationAborted : Assembly, Static, Literal, HasDefault
     System.String NotSupported_UnseekableStream = NotSupported_UnseekableStream : Assembly, Static, Literal, HasDefault
-    System.String IO_EOF_ReadBeyondEOF = IO_EOF_ReadBeyondEOF : Assembly, Static, Literal, HasDefault
-    System.String ObjectDisposed_StreamClosed = ObjectDisposed_StreamClosed : Assembly, Static, Literal, HasDefault
     System.String UnauthorizedAccess_IODenied_Path = UnauthorizedAccess_IODenied_Path : Assembly, Static, Literal, HasDefault
+    System.String IO_EOF_ReadBeyondEOF = IO_EOF_ReadBeyondEOF : Assembly, Static, Literal, HasDefault
     System.String IO_UnknownError = IO_UnknownError : Assembly, Static, Literal, HasDefault
+    System.String ObjectDisposed_StreamClosed = ObjectDisposed_StreamClosed : Assembly, Static, Literal, HasDefault
     System.String Arg_WrongAsyncResult = Arg_WrongAsyncResult : Assembly, Static, Literal, HasDefault
     System.String InvalidOperation_EndReadCalledMultiple = InvalidOperation_EndReadCalledMultiple : Assembly, Static, Literal, HasDefault
     System.String InvalidOperation_EndWriteCalledMultiple = InvalidOperation_EndWriteCalledMultiple : Assembly, Static, Literal, HasDefault

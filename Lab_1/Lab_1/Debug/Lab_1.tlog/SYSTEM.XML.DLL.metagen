@@ -2528,8 +2528,6 @@ Class System.Xml.XmlConfiguration.XmlConfigurationString: AutoLayout, AnsiClass,
     System.String XmlReaderSectionName = xmlReader : Assembly, Static, Literal, HasDefault
     System.String XsltSectionName = xslt : Assembly, Static, Literal, HasDefault
     System.String ProhibitDefaultResolverName = prohibitDefaultResolver : Assembly, Static, Literal, HasDefault
-    System.String LimitXPathComplexityName = limitXPathComplexity : Assembly, Static, Literal, HasDefault
-    System.String EnableMemberAccessForXslCompiledTransformName = enableMemberAccessForXslCompiledTransform : Assembly, Static, Literal, HasDefault
     System.String XmlConfigurationSectionName = system.xml : Assembly, Static, Literal, HasDefault
 Class System.Xml.XmlConfiguration.XmlReaderSection: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
   :System.Configuration.ConfigurationSection
@@ -2547,20 +2545,10 @@ Class System.Xml.XmlConfiguration.XsltConfigSection: AutoLayout, AnsiClass, Clas
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
     System.String ProhibitDefaultResolverString 'get set' : 
-    System.String LimitXPathComplexityString 'get set' : 
-    Boolean LimitXPathComplexity 'get ' : 
-    System.String EnableMemberAccessForXslCompiledTransformString 'get set' : 
-    Boolean EnableMemberAccessForXslCompiledTransform 'get ' : 
   Methods:
     get_ProhibitDefaultResolverString(): PrivateScope, Public, HideBySig, SpecialName
     set_ProhibitDefaultResolverString(String): PrivateScope, Public, HideBySig, SpecialName
     CreateDefaultResolver(): PrivateScope, Assembly, Static, HideBySig
-    get_LimitXPathComplexityString(): PrivateScope, Assembly, HideBySig, SpecialName
-    set_LimitXPathComplexityString(String): PrivateScope, Assembly, HideBySig, SpecialName
-    get_LimitXPathComplexity(): PrivateScope, Assembly, Static, HideBySig, SpecialName
-    get_EnableMemberAccessForXslCompiledTransformString(): PrivateScope, Assembly, HideBySig, SpecialName
-    set_EnableMemberAccessForXslCompiledTransformString(String): PrivateScope, Assembly, HideBySig, SpecialName
-    get_EnableMemberAccessForXslCompiledTransform(): PrivateScope, Assembly, Static, HideBySig, SpecialName
 Class System.Xml.XmlEncodedRawTextWriterIndent: AutoLayout, AnsiClass, Class, BeforeFieldInit
   :System.Xml.XmlEncodedRawTextWriter
     Void .ctor(System.IO.TextWriter, System.Xml.XmlWriterSettings): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -2717,7 +2705,6 @@ Class System.Xml.XmlReaderSettings: AutoLayout, AnsiClass, Class, Public, Sealed
     get_NameTable(): PrivateScope, Public, HideBySig, SpecialName
     set_NameTable(XmlNameTable): PrivateScope, Public, HideBySig, SpecialName
     get_IsXmlResolverSet(): PrivateScope, Assembly, HideBySig, SpecialName
-    set_IsXmlResolverSet(Boolean): PrivateScope, Assembly, HideBySig, SpecialName
     set_XmlResolver(XmlResolver): PrivateScope, Public, HideBySig, SpecialName
     GetXmlResolver(): PrivateScope, Assembly, HideBySig
     GetXmlResolver_CheckConfig(): PrivateScope, Assembly, HideBySig
@@ -2764,7 +2751,6 @@ Class System.Xml.XmlReaderSettings: AutoLayout, AnsiClass, Class, Public, Sealed
     set_ReadOnly(Boolean): PrivateScope, Assembly, HideBySig, SpecialName
     AddValidation(XmlReader): PrivateScope, Assembly, HideBySig
     AddConformanceWrapper(XmlReader): PrivateScope, Assembly, HideBySig
-    EnableLegacyXmlSettings(): PrivateScope, Assembly, Static, HideBySig
 Struct System.Xml.XmlSpace: AutoLayout, AnsiClass, Class, Public, Sealed
   :System.Enum
   Fields:
@@ -2871,11 +2857,6 @@ Class System.Xml.XmlTextEncoder: AutoLayout, AnsiClass, Class, BeforeFieldInit
     WriteCharEntity(Char): PrivateScope, Assembly, HideBySig
     WriteEntityRef(String): PrivateScope, Assembly, HideBySig
     Flush(): PrivateScope, Assembly, HideBySig
-Class System.Xml.BinaryCompatibility: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
-  Properties:
-    Boolean TargetsAtLeast_Desktop_V4_5_2 'get ' : 
-  Methods:
-    get_TargetsAtLeast_Desktop_V4_5_2(): PrivateScope, Assembly, Static, HideBySig, SpecialName
 Class System.Xml.XmlTextReader: AutoLayout, AnsiClass, Class, Public, HasSecurity, BeforeFieldInit
   :System.Xml.XmlReader
     Void .ctor(System.IO.Stream): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -3053,7 +3034,6 @@ Class System.Xml.XmlTextReaderImpl: AutoLayout, AnsiClass, Class, BeforeFieldIni
     System.Xml.WhitespaceHandling WhitespaceHandling 'get set' : 
     System.Xml.DtdProcessing DtdProcessing 'get set' : 
     System.Xml.EntityHandling EntityHandling 'get set' : 
-    Boolean IsResolverSet 'get ' : 
     System.Xml.XmlResolver XmlResolver 'set' : 
     System.Xml.XmlNameTable DtdParserProxy_NameTable 'get ' : 
     System.Xml.IXmlNamespaceResolver DtdParserProxy_NamespaceResolver 'get ' : 
@@ -3084,7 +3064,6 @@ Class System.Xml.XmlTextReaderImpl: AutoLayout, AnsiClass, Class, BeforeFieldIni
     System.Xml.ConformanceLevel V1ComformanceLevel 'get ' : 
     Boolean DisableUndeclaredEntityCheck 'set' : 
   Methods:
-    get_DtdParserProxy_ParsingBufferLength(): PrivateScope, Assembly, HideBySig, SpecialName
     get_DtdParserProxy_CurrentPosition(): PrivateScope, Assembly, HideBySig, SpecialName
     set_DtdParserProxy_CurrentPosition(Int32): PrivateScope, Assembly, HideBySig, SpecialName
     get_DtdParserProxy_EntityStackLength(): PrivateScope, Assembly, HideBySig, SpecialName
@@ -3208,7 +3187,6 @@ Class System.Xml.XmlTextReaderImpl: AutoLayout, AnsiClass, Class, BeforeFieldIni
     set_DtdProcessing(DtdProcessing): PrivateScope, Assembly, HideBySig, SpecialName
     get_EntityHandling(): PrivateScope, Assembly, HideBySig, SpecialName
     set_EntityHandling(EntityHandling): PrivateScope, Assembly, HideBySig, SpecialName
-    get_IsResolverSet(): PrivateScope, Assembly, HideBySig, SpecialName
     set_XmlResolver(XmlResolver): PrivateScope, Assembly, HideBySig, SpecialName
     ResetState(): PrivateScope, Assembly, HideBySig
     GetRemainder(): PrivateScope, Assembly, HideBySig
@@ -3224,6 +3202,7 @@ Class System.Xml.XmlTextReaderImpl: AutoLayout, AnsiClass, Class, BeforeFieldIni
     get_DtdParserProxy_BaseUri(): PrivateScope, Assembly, HideBySig, SpecialName
     get_DtdParserProxy_IsEof(): PrivateScope, Assembly, HideBySig, SpecialName
     get_DtdParserProxy_ParsingBuffer(): PrivateScope, Assembly, HideBySig, SpecialName
+    get_DtdParserProxy_ParsingBufferLength(): PrivateScope, Assembly, HideBySig, SpecialName
 Class System.Xml.XmlTextReaderImpl+DtdParserProxy: AutoLayout, AnsiClass, Class, NestedAssembly, BeforeFieldInit
     Void .ctor(System.Xml.XmlTextReaderImpl): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
   Interfaces:
@@ -12206,11 +12185,6 @@ Class System.Xml.Schema.XmlSchemaInferenceException: AutoLayout, AnsiClass, Clas
     Void .ctor(System.String, Int32, Int32): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
   Methods:
     GetObjectData(SerializationInfo, StreamingContext): PrivateScope, Public, Virtual, HideBySig, HasSecurity
-Class System.Xml.Serialization.AppSettings: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
-  Properties:
-    System.Nullable`1[System.Boolean] UseLegacySerializerGeneration 'get ' : 
-  Methods:
-    get_UseLegacySerializerGeneration(): PrivateScope, Assembly, Static, HideBySig, SpecialName
 Class System.Xml.Serialization.CodeExporter: AutoLayout, AnsiClass, Class, Public, Abstract, HasSecurity, BeforeFieldInit
     Void .ctor(System.CodeDom.CodeNamespace, System.CodeDom.CodeCompileUnit, System.CodeDom.Compiler.CodeDomProvider, System.Xml.Serialization.CodeGenerationOptions, System.Collections.Hashtable): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
   Properties:
@@ -12266,7 +12240,6 @@ Class System.Xml.Serialization.CodeGenerator: AutoLayout, AnsiClass, Class, Befo
   Fields:
     System.Reflection.Emit.LocalBuilder retLocal : Assembly
     System.Reflection.Emit.Label retLabel : Assembly
-    System.Reflection.BindingFlags InstancePublicBindingFlags : Assembly, Static
     System.Reflection.BindingFlags InstanceBindingFlags : Assembly, Static
     System.Reflection.BindingFlags StaticBindingFlags : Assembly, Static
     System.Reflection.MethodAttributes PublicMethodAttributes : Assembly, Static
@@ -12876,7 +12849,6 @@ Class System.Xml.Serialization.StructMapping: AutoLayout, AnsiClass, Class, Befo
     set_IsSequence(Boolean): PrivateScope, Assembly, HideBySig, SpecialName
 Class System.Xml.Serialization.AccessorMapping: AutoLayout, AnsiClass, Class, Abstract, BeforeFieldInit
   :System.Xml.Serialization.Mapping
-    Void .ctor(): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
   Properties:
     Boolean IsAttribute 'get ' : 
     Boolean IsText 'get ' : 
@@ -12929,7 +12901,7 @@ Class System.Xml.Serialization.MemberMappingComparer: AutoLayout, AnsiClass, Cla
     Compare(Object, Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
 Class System.Xml.Serialization.MemberMapping: AutoLayout, AnsiClass, Class, BeforeFieldInit
   :System.Xml.Serialization.AccessorMapping
-    Void .ctor(): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
     Boolean CheckShouldPersist 'get set' : 
     System.Xml.Serialization.SpecifiedAccessor CheckSpecified 'get set' : 
@@ -12961,7 +12933,6 @@ Class System.Xml.Serialization.MemberMapping: AutoLayout, AnsiClass, Class, Befo
     get_IsSequence(): PrivateScope, Assembly, HideBySig, SpecialName
     get_SequenceId(): PrivateScope, Assembly, HideBySig, SpecialName
     set_SequenceId(Int32): PrivateScope, Assembly, HideBySig, SpecialName
-    Clone(): PrivateScope, Assembly, HideBySig
     GetTypeName(CodeDomProvider): PrivateScope, Assembly, HideBySig
 Class System.Xml.Serialization.MembersMapping: AutoLayout, AnsiClass, Class, BeforeFieldInit
   :System.Xml.Serialization.TypeMapping
@@ -14443,6 +14414,7 @@ Class System.Xml.Serialization.XmlSerializationILGen: AutoLayout, AnsiClass, Cla
     set_ModuleBuilder(ModuleBuilder): PrivateScope, Assembly, HideBySig, SpecialName
     get_TypeAttributes(): PrivateScope, Assembly, HideBySig, SpecialName
     NewRegex(String): PrivateScope, Assembly, Static, HideBySig
+    Replace(MemberInfo, Type): PrivateScope, Assembly, Static, HideBySig
     EnsureMethodBuilder(TypeBuilder, String, MethodAttributes, Type, Type[]): PrivateScope, Assembly, HideBySig
     GetMethodBuilder(String): PrivateScope, Assembly, HideBySig
     GenerateMethod(TypeMapping): PrivateScope, Assembly, Virtual, HideBySig, VtableLayoutMask, CheckAccessOnOverride
@@ -14534,7 +14506,7 @@ Class System.Xml.Serialization.XmlSerializationWriterCodeGen: AutoLayout, AnsiCl
     GenerateMethod(TypeMapping): PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride
     GenerateEnd(): PrivateScope, Assembly, HideBySig
     GenerateElement(XmlMapping): PrivateScope, Assembly, HideBySig
-Class System.Xml.Serialization.DynamicAssemblies: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+Class System.Xml.Serialization.DynamicAssemblies: AutoLayout, AnsiClass, Class, BeforeFieldInit
   Methods:
     IsTypeDynamic(Type): PrivateScope, Assembly, Static, HideBySig
     IsTypeDynamic(Type[]): PrivateScope, Assembly, Static, HideBySig
@@ -15098,9 +15070,9 @@ Class ThisAssembly: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldI
     System.String DefaultAlias = System.Xml.dll : Assembly, Static, Literal, HasDefault
     System.String Copyright = © Microsoft Corporation.  All rights reserved. : Assembly, Static, Literal, HasDefault
     System.String Version = 4.0.0.0 : Assembly, Static, Literal, HasDefault
-    System.String InformationalVersion = 4.0.30319.34209 : Assembly, Static, Literal, HasDefault
+    System.String InformationalVersion = 4.0.30319.18020 : Assembly, Static, Literal, HasDefault
     System.String DailyBuildNumberStr = 30319 : Assembly, Static, Literal, HasDefault
-    System.String BuildRevisionStr = 34209 : Assembly, Static, Literal, HasDefault
+    System.String BuildRevisionStr = 18020 : Assembly, Static, Literal, HasDefault
     Int32 DailyBuildNumber = 30319 : Assembly, Static, Literal, HasDefault
 Class AssemblyRef: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
   Fields:
